@@ -1,25 +1,40 @@
 {
   "expo": {
-    "name": "my-mobile-app",
-    "slug": "my-mobile-app",
+    "name": "Recall App",
+    "slug": "recall-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "mymobileapp",
+    
+    // 1. iOS and Default Icon
+    "icon": "./assets/logo-recall-app.png",
+    
+    "scheme": "recallapp",
     "userInterfaceStyle": "automatic",
+    
+    // 2. Top-level Splash Config
+    "splash": {
+      "image": "./assets/logo-recall-app.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
     },
+    
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        
+        // 3. FIX: Point this to YOUR logo, not the default assets/images one
+        "foregroundImage": "./assets/logo-recall-app.png"
+        
+        // REMOVED "backgroundImage" to avoid conflicts if you don't have a specific bg image
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.sacubeli1001.recallapp"
     },
     "web": {
       "output": "static",
@@ -30,7 +45,8 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          // 4. FIX: Update the Plugin to use YOUR logo
+          "image": "./assets/logo-recall-app.png", 
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
@@ -38,11 +54,18 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "1e08bf81-ff6a-4221-96e5-2205ee0fa7bc"
+      }
     }
   }
 }
